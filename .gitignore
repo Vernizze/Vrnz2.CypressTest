@@ -247,3 +247,10 @@ ModelManifest.xml
 
 #Jetbrains IDEA IDEs
 .idea/
+
+#Cypress
+.DS_Store
+cypress/screenshots/
+cypress/videos/
+node_modules
+node_modules/
