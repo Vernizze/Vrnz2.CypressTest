@@ -1,0 +1,17 @@
+git init
+touch .gitignore
+npm init -y
+npm i cypress -D
+
+package.json
+	=> 
+	"scripts": {
+     "cypress: open": "./node_modules/.bin/cypress open",
+     "cypress: run": "./node_modules/.bin/cypress run --spec ** / *. spec.js"
+
+npm i --D @bahmutov/cy-api
+
+support/index.js
+	import '@bahmutov/cy-api/support';
+	
+npx cypress open
