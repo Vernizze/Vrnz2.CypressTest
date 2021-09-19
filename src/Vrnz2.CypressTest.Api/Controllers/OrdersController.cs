@@ -45,8 +45,8 @@ namespace Vrnz2.CypressTest.Api.Controllers
             var addRequest = new AddOrder.Input 
             {
                 Quantity = request.Quantity,
-                Product = request.Product,
-                Customer = request.Customer
+                ProductId = request.ProductId,
+                CustomerId = request.CustomerId
             };
 
             return await controllerHelper.ReturnAsync<AddOrder.Input, AddOrder.Output, Order>((request) => mediator.Send(request), addRequest);
@@ -76,8 +76,8 @@ namespace Vrnz2.CypressTest.Api.Controllers
     public class OrderAddRequest
     {
         public int Quantity { get; set; }
-        public Product Product { get; set; }
-        public Customer Customer { get; set; }
+        public Guid ProductId { get; set; }
+        public Guid CustomerId { get; set; }
     }
 
     public class OrderUpdateRequest

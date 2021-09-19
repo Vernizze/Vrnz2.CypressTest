@@ -17,8 +17,8 @@ namespace Vrnz2.CypressTest.Api.Services.AddOrder
                 : BaseDTO.Request, IRequest<Output>
             {
                 public int Quantity { get; set; }
-                public Product Product { get; set; }
-                public Customer Customer { get; set; }
+                public Guid ProductId { get; set; }
+                public Guid CustomerId { get; set; }
             }
 
             public class Output
@@ -30,16 +30,32 @@ namespace Vrnz2.CypressTest.Api.Services.AddOrder
         public class Handler
             : IRequestHandler<Model.Input, Model.Output>
         {
+            #region Variables
+
+            private readonly IMediator _mediator;
+
+            #endregion
+
+            #region Constructors
+
+            public Handler(IMediator mediator)
+                => _mediator = mediator;
+
+            #endregion
+
             #region Methods
 
             public async Task<Model.Output> Handle(Model.Input request, CancellationToken cancellationToken)
             {
+                var product = await _mediator.Send(new GetProduct.GetProduct.Model.Input { ProductId = request.ProductId });
+                var customer = await _mediator.Send(new GetCustomer.GetCustomer.Model.Input { CustomerId = request.CustomerId });
+
                 var order = new Order
                 {
                     Id = Guid.NewGuid(),
                     Number = OrdersRepository.Instance.GetOrdersQtt(),
-                    Customer = request.Customer,
-                    Product = request.Product,
+                    Customer = customer.Content,
+                    Product = product.Content,
                     Quantity = request.Quantity
                 };
 
