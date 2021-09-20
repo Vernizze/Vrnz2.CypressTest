@@ -8,7 +8,8 @@ using Microsoft.OpenApi.Models;
 using Vrnz2.BaseInfra.Assemblies;
 using Vrnz2.BaseInfra.Logs;
 using Vrnz2.BaseInfra.ServiceCollection;
-using Vrnz2.CypressTest.Api.Helpers;
+using Vrnz2.BaseWebApi.Helpers;
+using Vrnz2.CypressTest.Api.Helpers.Extensions;
 
 namespace Vrnz2.CypressTest.Api
 {
@@ -25,10 +26,8 @@ namespace Vrnz2.CypressTest.Api
                     .AddLogs()
                     .AddMediatR(AssembliesHelper.GetAssemblies<Program>())
                     .AddIServiceColletion()
-                    .AddSwaggerGen(c =>
-                    {
-                        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vrnz2.CypressTest.Api", Version = "v1" });
-                    })
+                    .AddValidations()
+                    .AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vrnz2.CypressTest.Api", Version = "v1" }))
                     .AddControllers()
                     .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
 

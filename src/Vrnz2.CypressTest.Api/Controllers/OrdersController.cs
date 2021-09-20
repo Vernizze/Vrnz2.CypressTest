@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vrnz2.CypressTest.Api.Data.Entities;
-using Vrnz2.CypressTest.Api.Helpers;
 using GetOrder = Vrnz2.CypressTest.Api.Services.GetOrder.GetOrder.Model;
 using GetOrders = Vrnz2.CypressTest.Api.Services.GetOrders.GetOrders.Model;
 using AddOrder = Vrnz2.CypressTest.Api.Services.AddOrder.AddOrder.Model;
 using UpdateOrder = Vrnz2.CypressTest.Api.Services.UpdateOrder.UpdateOrder.Model;
 using DeleteOrder = Vrnz2.CypressTest.Api.Services.DeleteOrder.DeleteOrder.Model;
 using Vrnz2.BaseContracts.DTOs.Base;
+using Vrnz2.BaseWebApi.Helpers;
 
 namespace Vrnz2.CypressTest.Api.Controllers
 {

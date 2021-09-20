@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using System;
 using System.Net;
 using System.Threading;
@@ -23,6 +24,21 @@ namespace Vrnz2.CypressTest.Api.Services.AddProduct
             public class Output
                 : BaseDTO.Response<Product>
             {
+            }
+
+            public class RequestValidator
+                : AbstractValidator<Input>
+            {
+                public RequestValidator()
+                {
+                    RuleFor(v => v.Description)
+                        .NotEmpty()
+                        .WithMessage("Descrição do Produto é obrigatória!");
+
+                    RuleFor(v => v.UnitValue)
+                        .GreaterThan(0)
+                        .WithMessage("Valor do Produto deve ser maior que 0!");
+                }
             }
         }
 

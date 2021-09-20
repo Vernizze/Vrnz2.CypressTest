@@ -4,14 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vrnz2.CypressTest.Api.Data.Entities;
-using Vrnz2.CypressTest.Api.Helpers;
 using GetCustomer = Vrnz2.CypressTest.Api.Services.GetCustomer.GetCustomer.Model;
 using GetCustomers = Vrnz2.CypressTest.Api.Services.GetCustomers.GetCustomers.Model;
 using AddCustomer = Vrnz2.CypressTest.Api.Services.AddCustomer.AddCustomer.Model;
 using UpdateCustomer = Vrnz2.CypressTest.Api.Services.UpdateCustomer.UpdateCustomer.Model;
 using DeleteCustomer = Vrnz2.CypressTest.Api.Services.DeleteCustomer.DeleteCustomer.Model;
 using Vrnz2.BaseContracts.DTOs.Base;
-using Vrnz2.Infra.CrossCutting.Types;
+using Vrnz2.BaseWebApi.Helpers;
 
 namespace Vrnz2.CypressTest.Api.Controllers
 {

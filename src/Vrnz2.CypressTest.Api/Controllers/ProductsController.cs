@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vrnz2.CypressTest.Api.Data.Entities;
-using Vrnz2.CypressTest.Api.Helpers;
 using GetProduct = Vrnz2.CypressTest.Api.Services.GetProduct.GetProduct.Model;
 using GetProducts = Vrnz2.CypressTest.Api.Services.GetProducts.GetProducts.Model;
 using AddProduct = Vrnz2.CypressTest.Api.Services.AddProduct.AddProduct.Model;
 using UpdateProduct = Vrnz2.CypressTest.Api.Services.UpdateProduct.UpdateProduct.Model;
 using DeleteProduct = Vrnz2.CypressTest.Api.Services.DeleteProduct.DeleteProduct.Model;
 using Vrnz2.BaseContracts.DTOs.Base;
+using Vrnz2.BaseWebApi.Helpers;
 
 namespace Vrnz2.CypressTest.Api.Controllers
 {
@@ -45,7 +45,7 @@ namespace Vrnz2.CypressTest.Api.Controllers
         {
             var addRequest = new AddProduct.Input { Description = request.Description, UnitValue = request.UnitValue };
 
-            return await controllerHelper.ReturnAsync<AddProduct.Input, AddProduct.Output, Product>((request) => mediator.Send(request), addRequest);
+            return await controllerHelper.ReturnAsync<AddProduct.Input, AddProduct.Output, Product>((request) => mediator.Send(request), addRequest, ignoreMessageCodesFactory: true);
         }
 
         [HttpPatch("")]

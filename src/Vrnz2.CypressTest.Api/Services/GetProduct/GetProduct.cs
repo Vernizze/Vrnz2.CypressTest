@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using System;
 using System.Net;
 using System.Threading;
@@ -22,6 +23,17 @@ namespace Vrnz2.CypressTest.Api.Services.GetProduct
             public class Output
                 : BaseDTO.Response<Product>
             {
+            }
+
+            public class RequestValidator
+                : AbstractValidator<Input>
+            {
+                public RequestValidator()
+                {
+                    RuleFor(v => v)
+                        .NotNull()
+                        .WithMessage("Request inválida!");
+                }
             }
         }
 

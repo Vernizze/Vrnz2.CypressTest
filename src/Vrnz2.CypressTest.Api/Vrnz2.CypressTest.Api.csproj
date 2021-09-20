@@ -5,11 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Helpers\ControllerHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.1" />
     <PackageReference Include="Vrnz2.BaseContracts" Version="1.0.3" />
-    <PackageReference Include="Vrnz2.BaseInfra" Version="1.0.7" />
+    <PackageReference Include="Vrnz2.BaseInfra" Version="1.0.8" />
+    <PackageReference Include="Vrnz2.BaseWebApi" Version="1.0.9" />
     <PackageReference Include="Vrnz2.Infra.Crosscutting" Version="1.0.28" />
   </ItemGroup>
 
